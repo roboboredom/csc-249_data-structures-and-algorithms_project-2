@@ -1,3 +1,5 @@
+package com.github.roboboredom;
+
 import java.util.ArrayList;
 
 /**

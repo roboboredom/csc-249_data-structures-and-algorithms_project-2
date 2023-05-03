@@ -1,3 +1,16 @@
+/*
+ * Date: 5/2/2023
+ * Author: Willem Dawson Gray.
+ * Class: CSC-249 Data Structures and Algorithms.
+ * Assignment: Programming Project 2.
+ * Description: 
+ *     Use the provided source code as a starting point to implement 
+ *     the BFS and DFS algorithms for traversing a graph.
+ *     When finished, the program will read the graph from the
+ *     GraphInfo.txt file and perform a BFS and DFS on it, outputting the results.
+ */
+package com.github.roboboredom;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.File;
@@ -108,7 +121,11 @@ public class Graph
       //Follow the algorithm described in 13.5.5 of your zyBook
       //It lays out the entire algorithm in psuedocode - you just need to convert it into java code
       //WRITE YOUR CODE HERE
-      
+
+      /* START STUDENT CODE */
+
+      /* END STUDENT CODE */
+
       System.out.println("BFS:");
       //print out the contents of discoveredSet - meaning the name of each node (don't use the toString() method since it includes the adjacency list)
       System.out.println();
@@ -128,7 +145,11 @@ public class Graph
       //Follow the algorithm described in 13.5.5 of your zyBook
       //It lays out the entire algorithm in psuedocode - you just need to convert it into java code
       //WRITE YOUR CODE HERE
-     
+
+      /* START STUDENT CODE */
+
+      /* END STUDENT CODE */
+
       System.out.println("DFS:");
       //print out the contents of visitedSet - meaning the name of each node (don't use the toString() method since it includes the adjacency list)
       System.out.println();
