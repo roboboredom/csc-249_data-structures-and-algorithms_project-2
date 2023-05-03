@@ -25,13 +25,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.File;
 import java.io.IOException;
-
 // Hint: Might be useful for BFS. See: https://docs.oracle.com/javase/8/docs/api/java/util/Queue.html
-//import java.util.Queue; 
-
+import java.util.Queue; 
 // Hint: Might be useful for BFS. See: https://docs.oracle.com/javase/8/docs/api/java/util/LinkedList.html
-//import java.util.LinkedList; 
-
+import java.util.LinkedList;
 // Hint: Might be useful for DFS. See: https://docs.oracle.com/javase/8/docs/api/java/util/Stack.html
 //import java.util.Stack; 
 
@@ -73,9 +70,10 @@ public class Graph
         ArrayList<Node> graph = new ArrayList<Node>();
 
         File file = new File("./assets/GraphInfo.txt");
+
         /* START STUDENT CODE */
         @SuppressWarnings("resource") // Supress resource leak warning about inputFile never being closed, as it does not matter.
-        /* END STUDENT CODE */
+        /* END STUDENT CODE */        
         Scanner inputFile = new Scanner(file);
 
         // Read in the information from each line of the text file.
@@ -145,13 +143,42 @@ public class Graph
         // WRITE YOUR CODE HERE
 
         /* START STUDENT CODE */
-        
-        /* END STUDENT CODE */
+        // Intialize frontierQueue and discoveredSet.
+        Queue<Node> frontierQueue = new LinkedList<Node>();
+        LinkedList<Node> discoveredSet = new LinkedList<Node>();
+
+        // Enqueue startV in frontierQueue, and add startV to discoveredSet.
+        frontierQueue.add(graph.get(0));
+        discoveredSet.add(graph.get(0));
+
+        // Loop below code while frontierQueue is not empty at the start of each loop.
+        while (!frontierQueue.isEmpty())
+        {
+            // Intialize currentV = Dequeue from frontierQueue.
+            Node currentV = frontierQueue.remove();
+
+            // Iterate through each vertex adjV adjacent to currentV.
+            for (Node adjV : currentV.getAdjacencyList())
+            {
+                /* If adjV is not in discoveredSet, enqueue it 
+                 * in frontierQueue, and add it do discoveredSet. */
+                if (!discoveredSet.contains(adjV))
+                {
+                    frontierQueue.add(adjV);
+                    discoveredSet.add(adjV);
+                }
+            }
+        }
 
         System.out.println("BFS:");
-        // print out the contents of discoveredSet - meaning the name of each node (don't use the toString() method
-        // since it includes the adjacency list)
-        System.out.println();
+        /* Print out the contents of discoveredSet, don't use
+         * toString() since it also prints their adjacency lists). */
+        for (Node n : discoveredSet) 
+        {
+            System.out.print(n.getName());
+        }
+        System.out.println(); // Append newline char to printed contents of discoveredSet.
+        /* END STUDENT CODE */
     }
 
     /**
@@ -163,7 +190,6 @@ public class Graph
      */
     public static void depthFirstSearch(ArrayList<Node> graph)
     {
-
         // perform a depth first traversal from the first Node in the graph (graph.get(0))
         // Follow the algorithm described in 13.5.5 of your zyBook
         // It lays out the entire algorithm in psuedocode - you just need to convert it into java code
@@ -174,8 +200,8 @@ public class Graph
         /* END STUDENT CODE */
 
         System.out.println("DFS:");
-        // print out the contents of visitedSet - meaning the name of each node (don't use the toString() method since
-        // it includes the adjacency list)
+        /* Print out the contents of visitedSet, don't use
+         * toString() since it also prints their adjacency lists). */
         System.out.println();
     }
 }
