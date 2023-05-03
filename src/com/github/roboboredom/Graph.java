@@ -55,7 +55,6 @@ public class Graph
          * The definitions are already done for you towards the end of this file, you just need to add the code to the body. */
         breadthFirstSearch(graph);
         depthFirstSearch(graph);
-
     }
 
     /*
@@ -73,7 +72,10 @@ public class Graph
     {
         ArrayList<Node> graph = new ArrayList<Node>();
 
-        File file = new File("GraphInfo.txt");
+        File file = new File("./assets/GraphInfo.txt");
+        /* START STUDENT CODE */
+        @SuppressWarnings("resource") // Supress resource leak warning about inputFile never being closed, as it does not matter.
+        /* END STUDENT CODE */
         Scanner inputFile = new Scanner(file);
 
         // Read in the information from each line of the text file.
@@ -111,9 +113,6 @@ public class Graph
                     n.addAdjacentNode(adj);
                 }
             }
-            /* START STUDENT CODE */
-            inputFile.close(); // Close inputFile to prevent resource leak.
-            /* END STUDENT CODE */
         }
         return graph;
     }
