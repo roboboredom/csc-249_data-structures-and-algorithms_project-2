@@ -30,7 +30,7 @@ import java.util.Queue;
 // Hint: Might be useful for BFS. See: https://docs.oracle.com/javase/8/docs/api/java/util/LinkedList.html
 import java.util.LinkedList;
 // Hint: Might be useful for DFS. See: https://docs.oracle.com/javase/8/docs/api/java/util/Stack.html
-//import java.util.Stack; 
+import java.util.Stack; 
 
 /**
  * This class will be a driver class that demonstrates graph traversal algorithms.
@@ -196,12 +196,43 @@ public class Graph
         // WRITE YOUR CODE HERE
 
         /* START STUDENT CODE */
+        // Initalize visitedSet and vertexStack.
+        LinkedList<Node> visitedSet = new LinkedList<Node>();
+        Stack<Node> vertexStack = new Stack<Node>();
 
-        /* END STUDENT CODE */
+        // Push startV to vertexStack.
+        vertexStack.push(graph.get(0));
+
+        // Loop below code while vertexStack is not empty at the start of each loop.
+        while (!vertexStack.isEmpty())
+        {
+            // Intialize currentV = Pop from vertexStack.
+            Node currentV = vertexStack.pop();
+
+            /* If currentV is not in vistedSet, add currentV to vistedSet and for 
+             * each vertext adjV adjacent to currentV push adjV to vertexStack */
+            if (!visitedSet.contains(currentV))
+            {
+                // Add currentV to vistedSet.
+                visitedSet.add(currentV);
+
+                // Iterate through each vertex adjV adjacent to currentV.
+                for (Node adjV : currentV.getAdjacencyList()) 
+                {
+                    // Push adjV to vertexStack.
+                    vertexStack.push(adjV);    
+                }
+            }
+        }
 
         System.out.println("DFS:");
         /* Print out the contents of visitedSet, don't use
          * toString() since it also prints their adjacency lists). */
-        System.out.println();
+        for (Node n : visitedSet) 
+        {
+            System.out.print(n.getName() + " ");
+        }
+        System.out.println(); // Append newline char to printed contents of visitedSet.
+        /* END STUDENT CODE */
     }
 }
