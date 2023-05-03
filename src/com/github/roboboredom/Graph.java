@@ -175,7 +175,7 @@ public class Graph
          * toString() since it also prints their adjacency lists). */
         for (Node n : discoveredSet) 
         {
-            System.out.print(n.getName());
+            System.out.print(n.getName() + " ");
         }
         System.out.println(); // Append newline char to printed contents of discoveredSet.
         /* END STUDENT CODE */
