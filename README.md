@@ -1,5 +1,5 @@
 # csc-249_data-structures-and-algorithms_project-2
-"Programming Project 2" assignment for "CSC-249 Data Structures and Algorithms" at Central Piedmont Community College (CPCC), \2 May \2023.
+"Programming Project 2" assignment for "CSC-249 Data Structures and Algorithms" at Central Piedmont Community College (CPCC), 2 May 2023.
 
 ### To build & run:
 1. Clone this repository to your desktop.  
